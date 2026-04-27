@@ -246,6 +246,12 @@ function startLoadingSequence() {
         }, 800);
     }, 10000); 
 }
+function closeAll() {
+  document.getElementById('results-display').classList.add('hidden');
+  document.getElementById('search-container').classList.add('hidden');
+  document.getElementById('search-input').value = "";
+}
+
 function confirmSuccess() {
   card.innerHTML = `
     <div style="color: #28a745; font-weight: bold;">✓ Product Confirmed!</div>

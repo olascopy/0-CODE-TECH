@@ -806,138 +806,110 @@ font-size: 12px;
     transform: translateY(0) scale(1);
     visibility: visible;
 }
-/* General reset for the widget */
-/* Container: Adjusted for finger-tapping and safe margins */
-.search-wrapper {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  z-index: 1000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* --- Floating Widget Wrapper --- */
+.search-wrapper { 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  display: flex; 
+  align-items: center; 
+  z-index: 1000; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
-/* Expandable Input: Uses max-width to prevent screen overflow */
-#search-container {
-  background: white;
-  border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  margin-right: 10px;
-  padding: 5px 15px;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
-  max-width: calc(100vw - 100px); /* Ensures bar never hits the screen edge */
+/* --- Milky & Water-Flowing Search Icon --- */
+.search-trigger { 
+  background: #fffdf5; /* Milky color */
+  color: #555; 
+  width: 60px; 
+  height: 60px; 
+  border-radius: 50%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  cursor: pointer; 
+  font-size: 26px; 
+  flex-shrink: 0;
+  border: 1px solid #f0ede4;
+  position: relative;
+  overflow: hidden;
+  /* Water-like glowing shadow */
+  box-shadow: 0 0 15px rgba(255, 253, 245, 0.8), 0 0 10px rgba(0, 123, 255, 0.2);
+  animation: waterGlow 3s infinite alternate ease-in-out;
 }
 
-#search-input {
-  border: none;
-  outline: none;
-  padding: 12px 5px;
-  width: 200px; /* Default desktop width */
-  font-size: 16px; /* Prevents iOS from auto-zooming on focus */
+/* Water Flow Animation */
+@keyframes waterGlow {
+  0% { box-shadow: 0 0 10px rgba(255, 253, 245, 0.6), 0 0 5px rgba(0, 123, 255, 0.1); }
+  100% { box-shadow: 0 0 25px rgba(255, 253, 245, 1), 0 0 20px rgba(0, 123, 255, 0.4); }
 }
 
-/* Floating Icon: Slightly larger for easier mobile tapping */
-.search-trigger {
-  background: #007bff;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 26px;
-  box-shadow: 0 4px 12px rgba(0,123,255,0.4);
-  flex-shrink: 0; /* Prevents icon from squishing */
+/* --- Expandable Input --- */
+#search-container { 
+  background: #fffdf5; /* Milky background */
+  border-radius: 30px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+  margin-right: 10px; 
+  padding: 5px 15px; 
+  display: flex; 
+  align-items: center; 
+  transition: all 0.3s ease; 
+  max-width: calc(100vw - 100px); 
 }
 
-/* Product Modal: Responsive centering and sizing */
-#results-display {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  width: 85%; /* Responsive width */
-  max-width: 400px; /* Max size for desktop */
-  text-align: center;
-  z-index: 2000;
+#search-input { 
+  border: none; 
+  outline: none; 
+  background: transparent;
+  padding: 12px 5px; 
+  width: 200px; 
+  font-size: 16px; 
 }
 
-.product-img {
-  width: 100%;
-  height: auto;
-  max-height: 250px;
-  object-fit: contain;
-  border-radius: 10px;
+/* --- Result Card & Close Button --- */
+#results-display { 
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background: white; 
+  padding: 25px 20px 20px 20px; 
+  border-radius: 15px; 
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
+  width: 85%; 
+  max-width: 400px; 
+  text-align: center; 
+  z-index: 2000; 
 }
 
-.btn-group {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.btn {
-  flex: 1; /* Makes buttons equal width on mobile */
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
+/* Cancel X Button Styling */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
   font-weight: bold;
+  color: #aaa;
   cursor: pointer;
+  line-height: 1;
 }
+.close-btn:hover { color: #555; }
 
+.product-img { width: 100%; height: auto; max-height: 250px; object-fit: contain; border-radius: 10px; }
+.btn-group { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+.btn { flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-yes { background: #28a745; color: white; }
+.btn-no { background: #dc3545; color: white; }
 .hidden { display: none !important; }
 
-/* MOBILE SPECIFIC OVERRIDES */
+/* --- MOBILE RESPONSIVE (477px) --- */
 @media (max-width: 477px) {
-  /* The Floating Bar at the bottom */
-  .search-wrapper {
-    right: 50%;
-    transform: translateX(50%);
-    width: auto; /* Shrinks to fit content */
-    max-width: 90%;
-  }
-
-  /* Centered Result Card - Now Slimmer */
-  #results-display {
-    width: 80%;          /* Decreased width from 90% to 80% */
-    max-width: 300px;    /* Strictly limits how wide it can get */
-    padding: 12px;       /* Tighter padding */
-    max-height: 80vh;    /* Slightly shorter to ensure it fits vertically */
-    overflow-y: auto;
-    border-radius: 10px;
-  }
-
-  /* Shrink image slightly to fit the slimmer card */
-  .product-img {
-    max-height: 150px;
-    margin-bottom: 8px;
-  }
-
-  /* Make text smaller to match the slim card */
-  #product-card h3 {
-    font-size: 1.1rem;
-    margin: 5px 0;
-  }
-
-  /* Tighten buttons */
-  .btn-group {
-    gap: 5px;
-  }
-  
-  .btn-yes, .btn-no {
-    padding: 10px 5px;
-    font-size: 13px;
-  }
+  .search-wrapper { right: 50%; transform: translateX(50%); width: auto; max-width: 90%; }
+  #results-display { width: 80%; max-width: 300px; padding: 20px 12px; max-height: 80vh; overflow-y: auto; }
+  .product-img { max-height: 150px; margin-bottom: 8px; }
+  #product-card h3 { font-size: 1.1rem; margin: 5px 0; }
+  .btn-group { gap: 5px; }
+  .btn-yes, .btn-no { padding: 10px 5px; font-size: 13px; }
 }
 
 
