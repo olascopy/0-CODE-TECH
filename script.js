@@ -155,6 +155,71 @@ function deleteComment(buttonElement) {
 }
 
 
+// Database of products - Link your images here
+const products = [
+  { name: "short jeans", price: "$99.5", img: "baggi-1.jpg" },
+  { name: "men designer", price: "$580", img: "cap7.jpg" },
+  { name: "urban cap", price: "$80", img: "cap-2.jpg" }
+
+
+                 
+];
+
+const wrapper = document.getElementById('search-container');
+const input = document.getElementById('search-input');
+const display = document.getElementById('results-display');
+const card = document.getElementById('product-card');
+const confirmUI = document.getElementById('confirmation-ui');
+const statusMsg = document.getElementById('status-msg');
+
+function toggleSearch() {
+  wrapper.classList.toggle('hidden');
+  if (!wrapper.classList.contains('hidden')) input.focus();
+}
+
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") handleSearch();
+});
+
+function handleSearch() {
+  const query = input.value.toLowerCase();
+  const match = products.find(p => p.name.toLowerCase().includes(query));
+
+  // Reset UI
+  statusMsg.classList.add('hidden');
+  confirmUI.classList.add('hidden');
+  display.classList.remove('hidden');
+
+  if (match) {
+    card.innerHTML = `
+      <img src="${match.img}" class="product-img">
+      <h3>${match.name}</h3>
+      <p>${match.price}</p>
+    `;
+    confirmUI.classList.remove('hidden');
+  } else {
+    card.innerHTML = "<p>No products found.</p>";
+    confirmFailure(); // Show the "get back to you" msg if nothing found
+  }
+}
+
+function confirmSuccess() {
+  card.innerHTML = "<h3>Awesome! Happy shopping!</h3>";
+  confirmUI.classList.add('hidden');
+  setTimeout(closeAll, 2000);
+}
+
+function confirmFailure() {
+  confirmUI.classList.add('hidden');
+  statusMsg.classList.remove('hidden');
+  setTimeout(closeAll, 3500);
+}
+
+function closeAll() {
+  display.classList.add('hidden');
+  wrapper.classList.add('hidden');
+  input.value = "";
+}
 
 function startLoadingSequence() {
     const loader = document.getElementById("site-preloader");
@@ -180,6 +245,17 @@ function startLoadingSequence() {
             loader.style.display = "none";
         }, 800);
     }, 10000); 
+}
+function confirmSuccess() {
+  card.innerHTML = `
+    <div style="color: #28a745; font-weight: bold;">✓ Product Confirmed!</div>
+    <p>Use code <strong>SAVE10</strong> for a discount.</p>
+    <a href="https://wa.me" class="btn-yes" style="text-decoration:none; display:block; margin-top:10px;">
+      Order via WhatsApp
+    </a>
+  `;
+  confirmUI.classList.add('hidden');
+  // We don't auto-close so they can click the link
 }
 
 window.addEventListener("DOMContentLoaded", () => {

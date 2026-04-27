@@ -7,6 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+      <section>
+<!-- Floating Search Widget Container -->
+<div class="search-wrapper">
+  <!-- Expandable Input Field -->
+  <div id="search-container" class="hidden">
+    <input type="text" id="search-input" placeholder="Search for a product...">
+  </div>
+  <!-- Floating Logo/Icon Trigger -->
+  <div class="search-trigger" onclick="toggleSearch()" aria-label="Search Toggle">
+    &#128269;
+  </div>
+</div>
+
+<!-- Search Results & Confirmation Card -->
+<div id="results-display" class="hidden">
+  <div id="product-card">
+    <!-- Search results (image, name, price) injected here -->
+  </div>
+  
+  <div id="confirmation-ui" class="hidden">
+    <hr>
+    <p>Is this what you were looking for?</p>
+    <div class="btn-group">
+      <button onclick="confirmSuccess()" class="btn btn-yes">Yes</button>
+      <button onclick="confirmFailure()" class="btn btn-no">No</button>
+    </div>
+  </div>
+
+  <div id="status-msg" class="hidden">
+    We will get back to you shortly.
+  </div>
+</div>
+</section>
     <section id="header"> 
         <a href="" class="logo">iFasHion</a>
 
@@ -160,7 +193,7 @@
             <img src="visa.png" alt="">
         </div>
         <div class="copy-right">
-            <p>@2026,O-CODE-TECH2 etc - HTML CSS Ecommerce Templete</p>
+            <p>@2026,CODEX E-commerce || BUILT WITH HTML CSS JS</p>
         </div>
     </footer>
     
