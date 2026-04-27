@@ -73,59 +73,72 @@
       
     </section>
 <section>
-    
-
-<div id="main-wrapper">
+  <div id="main-wrapper">
     <div id="rating-header">
-        <h3>App Rating: <span id="avg-display">0.0</span>/5 ★</h3>
-        <div class="star-row">
-            <span class="star-big" onclick="rateWeb(1)">★</span>
-            <span class="star-big" onclick="rateWeb(2)">★</span>
-            <span class="star-big" onclick="rateWeb(3)">★</span>
-            <span class="star-big" onclick="rateWeb(4)">★</span>
-            <span class="star-big" onclick="rateWeb(5)">★</span>
-        </div>
+      <h3>App Rating: <span id="avg-display">0.0</span>/5 ★</h3>
+      <div class="star-row">
+        <span class="star-big" onclick="rateWeb(1)">★</span>
+        <span class="star-big" onclick="rateWeb(2)">★</span>
+        <span class="star-big" onclick="rateWeb(3)">★</span>
+        <span class="star-big" onclick="rateWeb(4)">★</span>
+        <span class="star-big" onclick="rateWeb(5)">★</span>
+      </div>
     </div>
 
     <!-- Join Area -->
     <div id="user-setup">
-        <input type="text" id="username-input" placeholder="Create Username...">
-        <input type="password" id="password-input" placeholder="Create Password...">
-        <button onclick="setUser()">Join</button>
-        <p id="setup-error" style="color:red; font-size:12px; margin-top:5px; display:none;"></p>
+      <input type="text" id="username-input" placeholder="Create Username...">
+      <input type="password" id="password-input" placeholder="Create Password...">
+      <button onclick="setUser()">Join</button>
+      <p id="setup-error" style="color:red; font-size:12px; margin-top:5px; display:none;"></p>
     </div>
 
     <!-- Reset Section -->
     <div id="reset-section" style="display: none;">
-        <p>User: <b id="display-name"></b></p>
-        <input type="text" id="new-username" placeholder="New Username">
-        <input type="password" id="verify-pass" placeholder="Confirm Password">
-        <button onclick="resetName()">Update Name</button>
-        <p id="reset-error" style="color:red; font-size:12px; margin-top:5px; display:none;"></p>
+      <p>User: <b id="display-name"></b></p>
+      <input type="text" id="new-username" placeholder="New Username">
+      <input type="password" id="verify-pass" placeholder="Confirm Password">
+      <button onclick="resetName()">Update Name</button>
+      <p id="reset-error" style="color:red; font-size:12px; margin-top:5px; display:none;"></p>
     </div>
 
     <!-- Comment Section -->
     <div id="comment-controls" style="display: none;">
-        <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
-        <div class="input-row">
-            <div class="profile-circle">ifashionn</div>
-            <div class="input-container">
-                <input type="text" id="comment-text" placeholder="Add a comment...">
-                <button class="post-btn" onclick="postComment()">Comment</button><!-- Inside your comment-body div -->
-
-
-            </div>
+      <button class="delete-btn" onclick="deleteComment(this)">Delete</button>
+      <div class="input-row">
+        <div class="profile-circle">ifashionn</div>
+        <div class="input-container">
+          <input type="text" id="comment-text" placeholder="Add a comment...">
+          <button class="post-btn" onclick="postComment()">Comment</button>
         </div>
+      </div>
     </div>
 
     <div id="comments-container"></div>
 
-    <div id="support-section">
-        <h3>Support Our App</h3>
-        <div class="ad-placeholder">Ad Unit</div>
+    <!-- Combined Support Section (Banners + Direct Link) -->
+    <div id="support-section" style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; text-align: center;">
+      <h3>Support Our App</h3>
+      
+      <!-- 1. BANNER BOX (For Adsterra "Get Code" Scripts) -->
+      <div class="ad-container" style="display: flex; justify-content: center; min-height: 100px; margin: 15px 0;">
+        <!-- PASTE YOUR ADSTERRA SCRIPT CODE HERE -->
+        <script type="text/javascript">
+            // Your Banner Script goes here
+        </script>
+      </div>
+
+      <!-- 2. DIRECT LINK BUTTON (For your SmartLink/Direct Link) -->
+      <p style="font-size: 14px; color: #555;">Click below to help us keep the app free!</p>
+      <a href="https://www.profitablecpmratenetwork.com/vm3juw916?key=60893d39c54763e67cde6051308e5217" target="_blank" style="display: inline-block; padding: 15px 30px; background: #ff4757; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; margin-bottom: 20px;">
+        CLICK TO SUPPORT
+      </a>
     </div>
-</div>
+
+  </div>
 </section>
+
+
       <section id="newsletter" class="reveal section-p1"  style=" transition-delay:0.1s" section-m1>
         <div class="newtext">
             <h4>Sign up for iFasHion</h4>
