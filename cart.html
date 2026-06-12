@@ -1,172 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026/E-commerce</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-     <section> 
-  <!-- Floating Search Widget Container --> 
-  <div class="search-wrapper"> 
-    <!-- Expandable Input Field --> 
-    <div id="search-container" class="hidden"> 
-      <input type="text" id="search-input" placeholder="Search for a product..."> 
-    </div> 
-    
-    <!-- Floating Logo/Icon Trigger --> 
-    <div class="search-trigger" onclick="toggleSearch()" aria-label="Search Toggle"> 🔍 </div> 
-  </div> 
 
-  <!-- Search Results & Confirmation Card --> 
-  <div id="results-display" class="hidden">
-    <!-- ADDED CANCEL BUTTON HERE -->
-    <span class="close-btn" onclick="closeAll()" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; color:#888;">&times;</span>
-    
-    <div id="product-card"> 
-      <!-- Search results (image, name, price) injected here --> 
-    </div> 
-    
-    <div id="confirmation-ui" class="hidden"> 
-      <hr> 
-      <p>Is this what you were looking for?</p> 
-      <div class="btn-group"> 
-        <button onclick="confirmSuccess()" class="btn btn-yes">Yes</button> 
-        <button onclick="confirmFailure()" class="btn btn-no">No</button> 
-      </div> 
-    </div> 
-    
-    <div id="status-msg" class="hidden"> We will get back to you shortly. </div> 
-  </div> 
-</section>
-    <section id="header"> 
+<body>
+    <section>
+
+        <div class="search-wrapper">
+
+            <div id="search-container" class="hidden">
+                <input type="text" id="search-input" placeholder="Search for a product...">
+            </div>
+            <div class="search-trigger" onclick="toggleSearch()" aria-label="Search Toggle"> 🔍 </div>
+        </div>
+
+        <div id="results-display" class="hidden">
+
+            <span class="close-btn" onclick="closeAll()"
+                style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; color:#888;">&times;</span>
+
+            <div id="product-card">
+
+            </div>
+
+            <div id="confirmation-ui" class="hidden">
+                <hr>
+                <p>Is this what you were looking for?</p>
+                <div class="btn-group">
+                    <button onclick="confirmSuccess()" class="btn btn-yes">Yes</button>
+                    <button onclick="confirmFailure()" class="btn btn-no">No</button>
+                </div>
+            </div>
+
+            <div id="status-msg" class="hidden"> We will get back to you shortly. </div>
+        </div>
+    </section>
+    <section id="header">
         <a href="" class="logo">iFasHion</a>
 
         <div>
             <ul id="navbar">
-                <li><a   href="index.html">Home</a></li>
-                 <li><a  href="shop.html">Store</a></li>
-                  <li><a  href="blog.html">Updates</a></li>
-                   <li><a  href="about.html">About</a></li>
-                    <li><a  href="contact.html">Contact</a></li>
-                 
-                    <li><a href="hub.html">Rate Us</a></li>
-                   <li><a class="active"  id="cart-name" href="cat.html">Cart</a></li>
-                     
-                     <li><a class="active"  href="cart.html" id="lg-bag"><img  src="shopcart.jpg" alt=""></a></li>
-                     <a href="#" id="close"> &#10005;</a>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Store</a></li>
+                <li><a href="blog.html">Updates</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+                <li><a href="hub.html">Rate Us</a></li>
+                <li><a class="active" id="cart-name" href="cat.html">Cart</a></li>
+
+                <li><a class="active" href="cart.html" id="lg-bag"><img src="shopcart.jpg" alt=""></a></li>
+                <a href="#" id="close"> &#10005;</a>
 
             </ul>
         </div>
         <div id="mobile">
-       <img src="shopcart.jpg" alt=""> 
-       <div id="size">&#9776;</div> 
+            <img src="shopcart.jpg" alt="">
+            <div id="size">&#9776;</div>
 
 
         </div>
     </section>
 
-    <section id="page-header" class="reveal about-header"  style=" transition-delay:0.1s">
-       
-        <h2>#CART</h2>
-       
-        <p>Read all case studies about our products!</p>
-      
-    </section>
-<section id="cart" class="reveal section-p1"  style=" transition-delay:0.1s">
-<table width="100%">
-    <thead>
-        <tr>
-            <td>remove</td>
-              <td>image</td>
-             <td>product</td>
-              <td>price</td>
-               <td>quantity</td>
-                <td>subtotal</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><a href="#"> <span>&times;</span></a></td>
-           <td><img src="urban-causual.jpg" alt=""></td>
-           <td>Urban thorn t-shirts</td>
-          <td>$100</td>
-          <td><input type="number" value="1" ></td>
-          <td>200$</td>
-        </tr>
-        <tr>
-          <td><a href="#"> <span>&times;</span></a></td>
-           <td><img src="t-shirt2.jpg" alt=""></td>
-           <td>Urban thorn t-shirts</td>
-          <td>$110</td>
-          <td><input type="number" value="1" ></td>
-          <td>210$</td>
-        </tr>
-        <tr>
-          <td><a href="#"> <span>&times;</span></a></td>
-           <td><img src="men-designer.jpg" alt=""></td>
-           <td>men-designer </td>
-          <td>$200</td>
-          <td><input type="number" value="1" ></td>
-          <td>300$</td>
-        </tr>
-    </tbody>
-</table>
-</section>
-<section id="cart-add" class="reveal"  style=" transition-delay:0.1s">
-<div id="coupon">
-    <h3>Apply coupon</h3>
-    <div>
-        <input type="text" placeholder="Enter your coupon">
-        <button class="normal">Apply</button>
-    </div>
-</div>
-<div id="subtotal">
-    <h3>Cart Total</h3>
-    <table>
-        <tr>
-            <td>
-                Cart subtotal
-            </td>
-            <td>
-                $200
-            </td>
-        </tr>
-        <tr>
-            <td>shipping</td>
-            <td>Free</td>
-        </tr>
-        <tr>
-            <td><strong>TOTAL</strong></td>
-            <td><strong>$400</strong></td>
-        </tr>
-    </table>
-    <button class="normal">
-        proceed to check out
-    </button>
-</div>
-</section>
-    
+    <section id="page-header" class="reveal about-header" style=" transition-delay:0.1s">
 
-    <footer id="section-p1" class="reveal"  style=" transition-delay:0.1s" >
+        <h2>#CART</h2>
+
+        <p>Read all case studies about our products!</p>
+
+    </section>
+    <section id="cart" class="reveal section-p1" style=" transition-delay:0.1s">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>remove</td>
+                    <td>image</td>
+                    <td>product</td>
+                    <td>price</td>
+                    <td>quantity</td>
+                    <td>subtotal</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#"> <span>&times;</span></a></td>
+                    <td><img src="urban-causual.jpg" alt=""></td>
+                    <td>Urban thorn t-shirts</td>
+                    <td>$100</td>
+                    <td><input type="number" value="1"></td>
+                    <td>200$</td>
+                </tr>
+                <tr>
+                    <td><a href="#"> <span>&times;</span></a></td>
+                    <td><img src="t-shirt2.jpg" alt=""></td>
+                    <td>Urban thorn t-shirts</td>
+                    <td>$110</td>
+                    <td><input type="number" value="1"></td>
+                    <td>210$</td>
+                </tr>
+                <tr>
+                    <td><a href="#"> <span>&times;</span></a></td>
+                    <td><img src="men-designer.jpg" alt=""></td>
+                    <td>men-designer </td>
+                    <td>$200</td>
+                    <td><input type="number" value="1"></td>
+                    <td>300$</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="cart-add" class="reveal" style=" transition-delay:0.1s">
+        <div id="coupon">
+            <h3>Apply coupon</h3>
+            <div>
+                <input type="text" placeholder="Enter your coupon">
+                <button class="normal">Apply</button>
+            </div>
+        </div>
+        <div id="subtotal">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>
+                        Cart subtotal
+                    </td>
+                    <td>
+                        $200
+                    </td>
+                </tr>
+                <tr>
+                    <td>shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>$400</strong></td>
+                </tr>
+            </table>
+            <button class="normal">
+                proceed to check out
+            </button>
+        </div>
+    </section>
+
+
+    <footer id="section-p1" class="reveal" style=" transition-delay:0.1s">
         <div class="col">
-           <h6 class="logo">iFasHion</h6> 
+            <h6 class="logo">iFasHion</h6>
             <h4>contact</h4>
             <p><strong>Address:</strong> 7 Joseph Ekpo Street,Ijegun road,Nigeria</p>
-             <p><strong>phone:</strong>+234 7052807481/+234 09011036223</p>
-             <p><strong>Hours:</strong>10:00 - 19:00, Mon - Sat</p>
-             <div class="follow">
+            <p><strong>phone:</strong>+234 7052807481/+234 09011036223</p>
+            <p><strong>Hours:</strong>10:00 - 19:00, Mon - Sat</p>
+            <div class="follow">
                 <h4>follow us</h4>
                 <div class="icon">
-              <img src="fb.jpg" alt="">
-              <img src="whats.png" alt="">
-              <img src="insta.jpg" alt="">
-              <img src="tik.png" alt="">
+                    <img src="fb.jpg" alt="">
+                    <img src="whats.png" alt="">
+                    <img src="insta.jpg" alt="">
+                    <img src="tik.png" alt="">
                 </div>
-                
-             </div>
-             
+
+            </div>
+
         </div>
         <div class="col">
             <h4>About</h4>
@@ -176,7 +176,7 @@
             <a href="#">terms & conditions</a>
             <a href="#">contact us</a>
         </div>
-          <div class="col">
+        <div class="col">
             <h4>My Account</h4>
             <a href="#">Sign In</a>
             <a href="#">View Cart</a>
@@ -197,8 +197,9 @@
             <p>@2026,CODE-X E-commerce || BUILT WITH HTML CSS JS</p>
         </div>
     </footer>
-    
+
     <script src="script.js"></script>
- 
+
 </body>
+
 </html>
